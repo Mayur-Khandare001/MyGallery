@@ -10,10 +10,10 @@ const db = init({ appId: APP_ID });
 
 // e.g. 89602129-cuf0j.apps.googleusercontent.com
 const GOOGLE_CLIENT_ID =
-  "577497392128-g3aji5neetqgu4q7hquuk4l72jlei0j9.apps.googleusercontent.com";
+  "577497392128-1v3kitelalq5otvn2r6euuhbvmnh0u2q.apps.googleusercontent.com";
 
 // Use the google client name in the Instant dashboard auth tab
-const GOOGLE_CLIENT_NAME = "g2";
+const GOOGLE_CLIENT_NAME = "g3";
 function UserInfo() {
   const user = db.useUser();
   console.log(user);
@@ -51,10 +51,10 @@ const Login = () => {
             </GoogleOAuthProvider>
           </div>
         </db.SignedOut>
-        
       </div>
     </div>
   );
 };
 
 export default Login;
+
