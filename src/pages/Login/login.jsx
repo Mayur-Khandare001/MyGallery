@@ -11,7 +11,7 @@ const db = init({ appId: APP_ID });
 
 const GOOGLE_CLIENT_ID =
 
-  "577497392128-g3aji5neetqgu4q7hquuk4l72jlei0j9.apps.googleusercontent.com";
+  "696293805409-kc1qml2jmu4b5qpjdoct1upgrsr8rvja.apps.googleusercontent.com";
 // Use the google client name in the Instant dashboard auth tab
 
 const GOOGLE_CLIENT_NAME = "google-web";
