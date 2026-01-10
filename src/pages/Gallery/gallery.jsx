@@ -11,9 +11,12 @@ const Gallery = () => {
       queryKey: ["images"],
       queryFn: ({ pageParam = 1 }) => fetchImages(pageParam),
       initialPageParam: 1,
-      getNextPageParam: (lastPage, allPages) => {
-            return lastPage.length > 0 ? allPages.length + 1 : undefined;},
-    });
+     getNextPageParam: (lastPage, allPages) => {
+  if (!lastPage || !lastPage.results) return undefined;
+
+  return lastPage.results.length > 0 ? allPages.length + 1 : undefined;
+}
+);
 
   if (isPending) {
     return (
@@ -61,3 +64,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
