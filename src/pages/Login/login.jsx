@@ -2,17 +2,18 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import Logo from "../../components/Logo/logo";
 import { init } from "@instantdb/react";
-
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
 const APP_ID = "9d549577-d0af-4e6b-835a-70a6e518a5c2";
 
 const db = init({ appId: APP_ID });
 
-  const url = db.auth.createAuthorizationURL({
-    // Use the GitHub client name from the Instant dashboard auth tab
-    clientName: 'github-web',
-    redirectURL: window.location.href,
-  });
+// e.g. 89602129-cuf0j.apps.googleusercontent.com
+const GOOGLE_CLIENT_ID =
+  "696293805409-a7t4hnsbo9bd0hpkb9a6jk3mjlmeig95.apps.googleusercontent.com";
+
+// Use the google client name in the Instant dashboard auth tab
+const GOOGLE_CLIENT_NAME = "g1";
 function UserInfo() {
   const user = db.useUser();
   console.log(user);
@@ -28,9 +29,26 @@ const Login = () => {
         <Logo />
         <db.SignedOut>
           <div className="my-5">
-            <div>
-              <a href={url}>Log in with Github</a>
-            </div>
+            <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+              <GoogleLogin
+                nonce={nonce}
+                onError={() => alert("Login failed")}
+                onSuccess={({ credential }) => {
+                  db.auth
+                    .signInWithIdToken({
+                      clientName: GOOGLE_CLIENT_NAME,
+                      idToken: credential,
+                      // Make sure this is the same nonce you passed as a prop
+                      // to the GoogleLogin button
+                      nonce,
+                    })
+                    .catch((err) => {
+                      alert("Uh oh: " + err.body?.message);
+                    });
+                  //db.transact(db.tx.$users[user.id]);
+                }}
+              />
+            </GoogleOAuthProvider>
           </div>
         </db.SignedOut>
       </div>
@@ -39,7 +57,6 @@ const Login = () => {
 };
 
 export default Login;
-
 
 
 
