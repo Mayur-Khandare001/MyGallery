@@ -1,7 +1,7 @@
 import { createApi } from "unsplash-js";
 
 const UNSPLASH_BASE_URL = "https://api.unsplash.com";
-const VITE_UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+const VITE_UNSPLASH_ACCESS_KEY = "OvwjuCocx-Uga3UjeMXbp5nFE3SbSKbFuEyhWwHvmd4";
 
 // Create the API client once and reuse it
 const unsplash = createApi({
@@ -50,3 +50,4 @@ export const fetchImageById = async (id) => {
     throw error;
   }
 };
+
