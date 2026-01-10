@@ -11,7 +11,7 @@ const db = init({ appId: APP_ID });
   const url = db.auth.createAuthorizationURL({
     // Use the GitHub client name from the Instant dashboard auth tab
     clientName: 'github-web',
-    redirectURL: 'https://api.instantdb.com/runtime/oauth/callback',
+    redirectURL: window.location.href,
   });
 function UserInfo() {
   const user = db.useUser();
@@ -39,6 +39,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
