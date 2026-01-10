@@ -12,8 +12,9 @@ const Gallery = () => {
       queryFn: ({ pageParam = 1 }) => fetchImages(pageParam),
       initialPageParam: 1,
       getNextPageParam: (lastPage, allPages) => {
-            return lastPage.length > 0 ? allPages.length + 1 : undefined;},
-    });
+            return lastPage.length > 0 ? allPages.length + 1 : undefined;
+      },
+    })
 
   if (isLoading) {
     return (
@@ -61,6 +62,7 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
 
 
 
