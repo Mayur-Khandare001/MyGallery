@@ -10,10 +10,10 @@ const db = init({ appId: APP_ID });
 
 // e.g. 89602129-cuf0j.apps.googleusercontent.com
 const GOOGLE_CLIENT_ID =
-  "696293805409-a7t4hnsbo9bd0hpkb9a6jk3mjlmeig95.apps.googleusercontent.com";
+  "696293805409-q5emcu3hf6q2fj2bp5ia19u5gnoq61o1.apps.googleusercontent.com";
 
 // Use the google client name in the Instant dashboard auth tab
-const GOOGLE_CLIENT_NAME = "g1";
+const GOOGLE_CLIENT_NAME = "google-web";
 function UserInfo() {
   const user = db.useUser();
   console.log(user);
@@ -57,6 +57,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
