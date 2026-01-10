@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import Logo from "../../components/Logo/logo";
 import { init } from "@instantdb/react";
-import GitHubLogin from 'react-github-login';
+
 
 const APP_ID = "9d549577-d0af-4e6b-835a-70a6e518a5c2";
 
@@ -39,6 +39,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
