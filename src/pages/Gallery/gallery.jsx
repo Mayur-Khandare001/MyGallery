@@ -1,5 +1,4 @@
-
-      import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import Card1 from "../../components/Card1/card1.jsx";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchImages } from "../../unsplash/unsplash.jsx";
