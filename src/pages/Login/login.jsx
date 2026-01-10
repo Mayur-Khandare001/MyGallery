@@ -10,7 +10,7 @@ const db = init({ appId: APP_ID });
 
   const url = db.auth.createAuthorizationURL({
     // Use the GitHub client name from the Instant dashboard auth tab
-    clientName: 'Ov23lilqY554BilxdwOh',
+    clientName: 'github-web',
     redirectURL: window.location.href,
   });
 function UserInfo() {
@@ -39,6 +39,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
