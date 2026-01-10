@@ -12,11 +12,9 @@ const Gallery = () => {
       queryFn: ({ pageParam = 1 }) => fetchImages(pageParam),
       initialPageParam: 1,
      getNextPageParam: (lastPage, allPages) => {
-  if (!lastPage || !lastPage.results) return undefined;
+            return lastPage.length > 0 ? allPages.length + 1 : undefined;},
+    });
 
-  return lastPage.results.length > 0 ? allPages.length + 1 : undefined;
-}
-);
 
   if (isPending) {
     return (
@@ -64,4 +62,5 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
 
