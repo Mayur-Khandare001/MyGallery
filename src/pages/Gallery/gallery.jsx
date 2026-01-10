@@ -6,7 +6,7 @@ import  Navbar2  from '../../components/NavbarV2/navbar2.jsx';
 import { db } from "../../instantDB/instantdb";
 
 const Gallery = () => {
-  const { data, fetchNextPage, hasNextPage, isPending, isError, error } =
+  const { data, fetchNextPage, hasNextPage, isLoading, isError, error } =
     useInfiniteQuery({
       queryKey: ["images"],
       queryFn: ({ pageParam = 1 }) => fetchImages(pageParam),
@@ -15,7 +15,7 @@ const Gallery = () => {
             return lastPage.length > 0 ? allPages.length + 1 : undefined;},
     });
 
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-20">Loading...</div>
     );
@@ -61,5 +61,6 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
 
 
